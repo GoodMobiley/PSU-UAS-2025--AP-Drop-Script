@@ -23,6 +23,8 @@ PARAM_TABLE_PREFIX = 'DROP'
 TIME_MS = millis()
 LOCATION = ahrs:get_location()
 
+gcs:send_text(MAV_SEVERITY.INFO, SCRIPT_NAME.." "..SCRIPT_VERSION)
+
 local function send_emergency(msg) gcs:send_text(MAV_SEVERITY.EMERGENCY, SCRIPT_NAME_SHORT..': '..msg) end
 local function send_error(msg)     gcs:send_text(MAV_SEVERITY.ERROR, SCRIPT_NAME_SHORT..': '..msg)     end
 local function send_text(msg)      gcs:send_text(MAV_SEVERITY.INFO, SCRIPT_NAME_SHORT..': '..msg)      end
